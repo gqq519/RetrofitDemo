@@ -1,0 +1,21 @@
+网络请求Retrofit：
+1. http 基本知识
+    1. 消息的结构：请求和响应的消息结构
+    2. 响应码
+    3. 重定向
+2. OkHttp
+3. Retrofit
+
+总结：
+1. 最热门的布局：ViewPager+TabLayout+Fragment
+2. Http:
+    1. 消息的结构：请求和响应的消息结构
+    2. 响应码
+    3. 重定向
+3. Okhttp初步认识：基本使用流程清楚
+    OkhttpClient 核心类
+    Request：Builder().build();
+    异步回调：后台线程
+目标：回顾内容
+预习:OkHttp：Call模型
+     Retrofit：
