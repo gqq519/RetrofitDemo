@@ -4,6 +4,7 @@ import com.feicuiedu.retrofitdemo.okhttpPost.User;
 import com.google.gson.Gson;
 
 import okhttp3.Call;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
