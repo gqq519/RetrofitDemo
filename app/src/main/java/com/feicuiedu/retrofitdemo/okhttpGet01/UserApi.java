@@ -1,5 +1,7 @@
 package com.feicuiedu.retrofitdemo.okhttpGet01;
 
+import com.feicuiedu.retrofitdemo.okhttpPost.User;
+
 import okhttp3.Call;
 
 /**
@@ -11,11 +13,20 @@ public interface UserApi {
 
     String URL_GET = "https://api.github.com/search/repositories?q=language:java&page=1";
 
+    String URL_POST = "http://admin.syfeicuiedu.com/Handler/UserHandler.ashx?action=register";
+
     /**
      * OkHttp进行GET请求
      * @param url GET请求的地址
      * @return
      */
     Call getData(String url);
+
+    /**
+     * 进行Okhttp 的POST请求
+     * @param url
+     * @return
+     */
+    Call register(String url, User user);
 
 }

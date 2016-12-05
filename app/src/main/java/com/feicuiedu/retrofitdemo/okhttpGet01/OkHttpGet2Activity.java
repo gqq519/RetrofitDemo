@@ -13,6 +13,7 @@ import butterknife.OnClick;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class OkHttpGet2Activity extends AppCompatActivity {
 
@@ -39,6 +40,13 @@ public class OkHttpGet2Activity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 Log.w("TAG","请求成功"+response.body().contentLength());
 
+                if (response.isSuccessful()&&response.code()==200){
+                    String json = response.body().string();
+//                    Gson gson = new Gson();
+                    /**
+                     * 利用Json解析得到相应的结果，比如实体类、集合
+                     */
+                }
             }
         });
     }

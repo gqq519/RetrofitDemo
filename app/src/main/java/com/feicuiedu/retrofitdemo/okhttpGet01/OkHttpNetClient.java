@@ -1,8 +1,12 @@
 package com.feicuiedu.retrofitdemo.okhttpGet01;
 
+import com.feicuiedu.retrofitdemo.okhttpPost.User;
+import com.google.gson.Gson;
+
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
@@ -50,6 +54,21 @@ public class OkHttpNetClient implements UserApi{
                 .url(url)
                 .get()
                 .build();
+        return mOkHttpClient.newCall(request);
+    }
+
+    @Override
+    public Call register(String url,User user) {
+
+        Gson gson = new Gson();
+
+        RequestBody body = RequestBody.create(null,gson.toJson(user));
+
+        Request request = new Request.Builder()
+                .post(body)
+                .url(url)
+                .build();
+
         return mOkHttpClient.newCall(request);
     }
 }

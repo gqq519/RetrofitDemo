@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.feicuiedu.retrofitdemo.okHttpGet.OkHttpGetActivity;
 import com.feicuiedu.retrofitdemo.okhttpGet01.OkHttpGet2Activity;
+import com.feicuiedu.retrofitdemo.okhttpPost.OkHttpPostActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, OkHttpGet2Activity.class));
                 break;
             case R.id.okhttpPOST:
+                startActivity(new Intent(MainActivity.this, OkHttpPostActivity.class));
                 break;
         }
     }
