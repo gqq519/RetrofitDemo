@@ -23,3 +23,20 @@
 20161205
 1. OkHttp的使用：
     Call模型
+总结：
+Okhttp的使用
+1. Call模型：请求和响应做了一个统一的管理
+2. 拦截器：1. 依赖 2. 设置级别BODY 3. 给OKHttpClient设置上
+3. GET请求：
+    1. 将OkHttpClient进行单例
+    2. 创建一个接口，对请求做管理
+    3. 单例的类里面做请求的具体实现
+4. POST请求：
+    POST请求要传入请求体：RequestBody
+    1. 实体类：Json,GsonFormat插件帮助自动生成
+    2. Gson ：将实体类转换成Json字符串，大家可以试着将响应信息解析一下
+目标：
+    Call，拦截器，一定要掌握
+    GET、POST要掌握
+    可以试着封装一个CallBack：可以进行UI的更新
+    预习：Retrofit

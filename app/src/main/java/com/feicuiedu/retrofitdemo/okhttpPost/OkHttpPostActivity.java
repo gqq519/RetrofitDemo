@@ -53,6 +53,15 @@ public class OkHttpPostActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 Log.e("TAG","请求成功"+response.body().string());
+                if (response.isSuccessful()&&response.code()==200){
+                    String json = response.body().string();
+                    // 进行了解析，拿到响应的实体类
+                    /**
+                     * 想要进行UI的更新：
+                     * 1. Handler:自己试着实现一下，自定义一个CallBack,提供两个方法（可以运行在主线程）
+                     * 2. 别人封装写好的：Retrofit
+                     */
+                }
             }
         });
     }

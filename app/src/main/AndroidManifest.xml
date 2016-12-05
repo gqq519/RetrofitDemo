@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".okhttpGet01.OkHttpGet2Activity">
         </activity>
+        <activity android:name=".okhttpPost.OkHttpPostActivity">
+        </activity>
     </application>
 
 </manifest>
