@@ -15,6 +15,7 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.logging.HttpLoggingInterceptor;
 
 public class OkHttpGetActivity extends AppCompatActivity {
 
@@ -33,14 +34,30 @@ public class OkHttpGetActivity extends AppCompatActivity {
                  * 2. 初始化OkhttpClient:建议单例
                  * 3. 构建请求：GET请求，POST请求
                  * 4. 执行请求：同步请求和异步回调
+                 *
+                 * Call:
+                 * 拦截器：
+                 * 1. 添加依赖：compile 'com.squareup.okhttp3:logging-interceptor:3.4.2'
+                 * 2. 使用:
+                 *     1. 初始化
+                 *     2. 设置BODY日志拦截打印的级别
+                 * 3. 设置给OkHttpClient
                  */
-                OkHttpClient okHttpClient = new OkHttpClient();
+
+                HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+                interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+                OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                        .addInterceptor(interceptor)
+                        .build();
+
                 Request request = new Request.Builder()
                         .get()
                         .url("http://www.baidu.com")
                         .header("X-Type","json")
                         .header("X-abc","abc")
                         .build();
+
 
                 okHttpClient.newCall(request).enqueue(new Callback() {
 
@@ -60,5 +77,9 @@ public class OkHttpGetActivity extends AppCompatActivity {
                 });
             }
         });
+
+        /**
+         * 当请求时，返回或退出，利用cancel，为了节省资源
+         */
     }
 }
