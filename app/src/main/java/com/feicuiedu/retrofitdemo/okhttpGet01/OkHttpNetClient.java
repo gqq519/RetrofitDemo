@@ -8,7 +8,9 @@ import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Retrofit;
 
 /**
  * Created by gqq on 2016/12/5.
@@ -39,6 +41,15 @@ public class OkHttpNetClient implements UserApi{
         mOkHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(interceptor)
                 .build();
+
+        // 初始化Retrofit
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("")// 一定要传入的
+                .client(mOkHttpClient)// 可以设置OkHttpClient
+                .build();
+
+        // 实现接口请求的构建
+        retrofit.create(UserApi.class);
     }
 
     // 保证懒汉式线程安全
@@ -71,5 +82,10 @@ public class OkHttpNetClient implements UserApi{
                 .build();
 
         return mOkHttpClient.newCall(request);
+    }
+
+    @Override
+    public retrofit2.Call<ResponseBody> getA() {
+        return null;
     }
 }
