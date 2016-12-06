@@ -40,3 +40,18 @@ Okhttp的使用
     GET、POST要掌握
     可以试着封装一个CallBack：可以进行UI的更新
     预习：Retrofit
+
+20161206
+Retrofit :
+1. Retrofit是基于OkHttp进行封装的，使用流程类似
+   1. retrofit 是利用注解！！！！来进行请求的构建
+   2. Call模型也是有的，功能更加完善了一些
+   3. 新增了很多功能:转换器
+   4. 关于Call的后台线程的问题，Retrofit处理了
+2. 使用：
+    1. 添加依赖：compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    2. Retrofit进行初始化，单例，设置OkHttpClient，实现请求接口
+    3. 构建请求
+    4. 执行请求
+
+
