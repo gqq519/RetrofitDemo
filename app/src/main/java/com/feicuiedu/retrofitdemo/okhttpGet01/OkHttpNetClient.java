@@ -42,14 +42,14 @@ public class OkHttpNetClient implements UserApi{
                 .addInterceptor(interceptor)
                 .build();
 
-        // 初始化Retrofit
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("")// 一定要传入的
-                .client(mOkHttpClient)// 可以设置OkHttpClient
-                .build();
-
-        // 实现接口请求的构建
-        retrofit.create(UserApi.class);
+//        // 初始化Retrofit
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("")// 一定要传入的
+//                .client(mOkHttpClient)// 可以设置OkHttpClient
+//                .build();
+//
+//        // 实现接口请求的构建
+//        retrofit.create(UserApi.class);
     }
 
     // 保证懒汉式线程安全
@@ -84,8 +84,8 @@ public class OkHttpNetClient implements UserApi{
         return mOkHttpClient.newCall(request);
     }
 
-    @Override
-    public retrofit2.Call<ResponseBody> getA() {
-        return null;
-    }
+//    @Override
+//    public retrofit2.Call<ResponseBody> getA() {
+//        return null;
+//    }
 }

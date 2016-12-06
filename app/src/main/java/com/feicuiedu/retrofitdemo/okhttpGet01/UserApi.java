@@ -3,6 +3,8 @@ package com.feicuiedu.retrofitdemo.okhttpGet01;
 import com.feicuiedu.retrofitdemo.okhttpPost.User;
 
 import okhttp3.Call;
+import okhttp3.ResponseBody;
+import retrofit2.http.GET;
 
 /**
  * Created by gqq on 2016/12/5.
@@ -28,5 +30,8 @@ public interface UserApi {
      * @return
      */
     Call register(String url, User user);
+
+//    @GET("www.baidu.com")
+//    Call<ResponseBody> getA();
 
 }

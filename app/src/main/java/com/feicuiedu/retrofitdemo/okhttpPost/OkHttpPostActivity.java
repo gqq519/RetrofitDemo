@@ -8,6 +8,7 @@ import android.widget.EditText;
 import com.feicuiedu.retrofitdemo.R;
 import com.feicuiedu.retrofitdemo.okhttpGet01.OkHttpNetClient;
 import com.feicuiedu.retrofitdemo.okhttpGet01.UserApi;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 
@@ -61,6 +62,9 @@ public class OkHttpPostActivity extends AppCompatActivity {
                      * 1. Handler:自己试着实现一下，自定义一个CallBack,提供两个方法（可以运行在主线程）
                      * 2. 别人封装写好的：Retrofit
                      */
+                }
+                if (response == null) {
+
                 }
             }
         });
