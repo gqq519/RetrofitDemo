@@ -53,5 +53,7 @@ Retrofit :
     2. Retrofit进行初始化，单例，设置OkHttpClient，实现请求接口
     3. 构建请求
     4. 执行请求
+3. 为什么使用Retrofit
+   Call模型结合转换器：自动解析
 
 

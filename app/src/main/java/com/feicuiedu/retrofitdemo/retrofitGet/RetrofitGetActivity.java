@@ -26,11 +26,12 @@ public class RetrofitGetActivity extends AppCompatActivity {
     @OnClick(R.id.btn_get)
     public void onClick() {
         // 去执行请求
-        RetrofitNet.getInstance().mUserRetrofitApi.getData().enqueue(new Callback<ResponseBody>() {
+        RetrofitNet.getInstance().mUserRetrofitApi.getData("language:java",1).enqueue(new Callback<ResponseBody>() {
 
             // 请求成功
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                // 可以做UI的更新
                 Toast.makeText(RetrofitGetActivity.this, "onResponse："+response.code(), Toast.LENGTH_SHORT).show();
             }
 
