@@ -1,6 +1,7 @@
 package com.feicuiedu.retrofitdemo.retrofitGet;
 
 import com.feicuiedu.retrofitdemo.okhttpPost.User;
+import com.feicuiedu.retrofitdemo.retrofitPost.UserResult;
 
 import java.util.Map;
 
@@ -40,6 +41,9 @@ public interface UserRetrofitApi {
 
     @GET("https://api.github.com/search/repositories")
     Call<ResponseBody> getData(@Query("q")String q,@Query("page")int page);
+
+    @POST("http://admin.syfeicuiedu.com/Handler/UserHandler.ashx?action=register")
+    Call<UserResult> register(@Body User user);
 
     /**
      * 注解：

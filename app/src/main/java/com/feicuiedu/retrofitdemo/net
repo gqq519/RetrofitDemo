@@ -56,4 +56,14 @@ Retrofit :
 3. 为什么使用Retrofit
    Call模型结合转换器：自动解析
 
+   关于转换器Gson：实现Json和实体类或集合之间的转换
+   1. 添加依赖：compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+   2. 设置给Retrofit
+总结：1. Retrofit的注解！！！！！
+      2. 转换器---Call模型里面的泛型（实际请求成功的类型）
+      3. 使用流程
+
+目标：Retrofit使用多多练习！！！！
+      POST请求的实现
+      转换器的实现
 
