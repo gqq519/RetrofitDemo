@@ -42,7 +42,7 @@ public class OkHttpPostActivity extends AppCompatActivity {
          * 2. 进行请求
          *
          */
-        User user = new User(mEtName.getText().toString(),mEtPassword.getText().toString());
+        User user = new User(mEtPassword.getText().toString(),mEtName.getText().toString());
 
         OkHttpNetClient.getInstance().register(UserApi.URL_POST,user).enqueue(new Callback() {
 
