@@ -36,8 +36,13 @@ public class MvpTestActivity extends AppCompatActivity {
         /**
          * 下面这个是网络请求，耗时的操作：业务逻辑
          * 1. 将网络请求分离出去，降低耦合度，减轻Activity的负担
+         *
          */
         User user = new User(etName.getText().toString(),etPassword.getText().toString());
         new RegisterPresenter().register(user);
+    }
+
+    public void showProgress(){
+
     }
 }
