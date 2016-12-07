@@ -99,8 +99,15 @@ public interface UserRetrofitApi {
     Call<ResponseBody> getE(@Part("photo")RequestBody requestBody,@Part("username")String name);
 
 
+    // 多部分
     @POST("http://wx.feicuiedu.com:9094/yitao/UserWeb?method=update")
     @Multipart
     Call<ResponseBody> getMult(@Part("user")MultUser user);
+
+
+    // 表单提交
+    @POST("http://wx.feicuiedu.com:9094/yitao/UserWeb?method=register")
+    @FormUrlEncoded
+    Call<ResponseBody> getFormUrl(@Field("username")String name,@Field("password")String password);
 
 }

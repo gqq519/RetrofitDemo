@@ -27,9 +27,25 @@ public class RetrofitTestActivity extends AppCompatActivity {
     public void onClick() {
         // 去进行多部分请求
 
-        MultUser user = new MultUser("yt59856b15cf394e7b84a7d48447d16098","xc62","555","123456","0F8EC12223174657B2E842076D54C361");
+        MultUser user = new MultUser("yt59856b15cf394e7b84a7d48447d16098", "xc62", "555", "123456", "0F8EC12223174657B2E842076D54C361");
 
         RetrofitNet.getInstance().mUserRetrofitApi.getMult(user).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                Toast.makeText(RetrofitTestActivity.this, "onResponse:" + response.code(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(RetrofitTestActivity.this, "onFailure:" + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @OnClick(R.id.btn_form)
+    public void onClickForm() {
+        // 去进行表单提交的请求
+        RetrofitNet.getInstance().mUserRetrofitApi.getFormUrl("gqq00","123456").enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 Toast.makeText(RetrofitTestActivity.this, "onResponse:"+response.code(), Toast.LENGTH_SHORT).show();
@@ -38,6 +54,7 @@ public class RetrofitTestActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Toast.makeText(RetrofitTestActivity.this, "onFailure:"+t.getMessage(), Toast.LENGTH_SHORT).show();
+
             }
         });
     }
