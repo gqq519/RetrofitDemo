@@ -43,4 +43,10 @@
         android:layout_height="wrap_content"
         android:text="Retrofit的POST请求"/>
 
+    <Button
+        android:id="@+id/btn_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="其他的请求方式"/>
+
 </LinearLayout>

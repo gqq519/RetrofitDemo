@@ -2,6 +2,7 @@ package com.feicuiedu.retrofitdemo.retrofitGet;
 
 import com.feicuiedu.retrofitdemo.okhttpPost.User;
 import com.feicuiedu.retrofitdemo.retrofitPost.UserResult;
+import com.feicuiedu.retrofitdemo.retrofitTest.MultUser;
 
 import java.util.Map;
 
@@ -75,7 +76,7 @@ public interface UserRetrofitApi {
      *               @Field("a")  @FieldMap Map<>
      *
      * 5. 多部分提交：@Multipart
-     *               @Part
+     *               @Part("")
      *
      */
 
@@ -96,5 +97,10 @@ public interface UserRetrofitApi {
     @Multipart
     @POST("")
     Call<ResponseBody> getE(@Part("photo")RequestBody requestBody,@Part("username")String name);
+
+
+    @POST("http://wx.feicuiedu.com:9094/yitao/UserWeb?method=update")
+    @Multipart
+    Call<ResponseBody> getMult(@Part("user")MultUser user);
 
 }

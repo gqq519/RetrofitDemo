@@ -10,6 +10,7 @@ import com.feicuiedu.retrofitdemo.okhttpGet01.OkHttpGet2Activity;
 import com.feicuiedu.retrofitdemo.okhttpPost.OkHttpPostActivity;
 import com.feicuiedu.retrofitdemo.retrofitGet.RetrofitGetActivity;
 import com.feicuiedu.retrofitdemo.retrofitPost.RetrofitPostActivity;
+import com.feicuiedu.retrofitdemo.retrofitTest.RetrofitTestActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.okhttpGET, R.id.okhttpPOST,R.id.okhttpGET1,R.id.retrofitGet,R.id.retrofitPost})
+    @OnClick({R.id.btn_other, R.id.okhttpGET, R.id.okhttpPOST, R.id.okhttpGET1, R.id.retrofitGet, R.id.retrofitPost})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.okhttpGET:
@@ -40,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.retrofitPost:
                 startActivity(new Intent(MainActivity.this, RetrofitPostActivity.class));
+                break;
+            case R.id.btn_other:
+                startActivity(new Intent(MainActivity.this, RetrofitTestActivity.class));
+                break;
         }
     }
 }
