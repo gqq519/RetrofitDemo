@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.feicuiedu.retrofitdemo.mvpdemo.MvpTestActivity;
 import com.feicuiedu.retrofitdemo.okHttpGet.OkHttpGetActivity;
 import com.feicuiedu.retrofitdemo.okhttpGet01.OkHttpGet2Activity;
 import com.feicuiedu.retrofitdemo.okhttpPost.OkHttpPostActivity;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_other, R.id.okhttpGET, R.id.okhttpPOST, R.id.okhttpGET1, R.id.retrofitGet, R.id.retrofitPost})
+    @OnClick({R.id.btn_mvp_register,R.id.btn_other, R.id.okhttpGET, R.id.okhttpPOST, R.id.okhttpGET1, R.id.retrofitGet, R.id.retrofitPost})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.okhttpGET:
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_other:
                 startActivity(new Intent(MainActivity.this, RetrofitTestActivity.class));
+                break;
+            case R.id.btn_mvp_register:
+                startActivity(new Intent(MainActivity.this, MvpTestActivity.class));
                 break;
         }
     }

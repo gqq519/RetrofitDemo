@@ -18,25 +18,20 @@ public class RegisterPresenter {
 
     private RegisterView registerView;
 
+    // 通过业务类的构造方法，将接口的实现类传递，为了实例化接口
+    public RegisterPresenter(RegisterView registerView) {
+        this.registerView = registerView;
+    }
+
     /**
      * 在业务实现中会进行视图的更新：比如弹吐丝、ListView展示数据、跳转页面、展示进度条、对话框。。。
      * 1. 分析的在业务实现过程视图的变化
      *      怎么实现视图的操作呢？？在Activity里面写视图视图实现的方法
      *      1. 直接在业务类里面直接调用；强烈不推荐
      *      2. 接口回调
+     * 2. 接口实例化：
+     * 3. 视图的具体实现
      */
-    private interface RegisterView{
-        /**
-         * 1. 显示进度
-         * 2. 隐藏进度
-         * 3. 弹吐司
-         * 4. 跳转页面
-         */
-        void showProgress();
-        void hideProgress();
-        void showMessage(String msg);
-        void navigationToMain();
-    }
 
     // 对外提供一个方法，完成网络请求实现
     public void register(User user) {
@@ -65,12 +60,14 @@ public class RegisterPresenter {
 
                         registerView.navigationToMain();
                     }
+                    registerView.showMessage(result.getErrmsg());
                 }
-                registerView.showMessage("");
+                registerView.showMessage("响应码："+response.code());
             }
 
             @Override
             public void onFailure(Call<UserResult> call, Throwable t) {
+                registerView.hideProgress();
                 // 弹个土司说明请求失败了
                 registerView.showMessage("请求失败"+t.getMessage());
             }

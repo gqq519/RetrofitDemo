@@ -1,9 +1,13 @@
 package com.feicuiedu.retrofitdemo.mvpdemo;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.feicuiedu.retrofitdemo.MainActivity;
 import com.feicuiedu.retrofitdemo.R;
 import com.feicuiedu.retrofitdemo.okhttpPost.User;
 import com.feicuiedu.retrofitdemo.retrofitGet.RetrofitNet;
@@ -16,12 +20,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MvpTestActivity extends AppCompatActivity {
+public class MvpTestActivity extends AppCompatActivity implements RegisterView {
 
     @BindView(R.id.et_name)
     EditText etName;
     @BindView(R.id.et_password)
     EditText etPassword;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +43,31 @@ public class MvpTestActivity extends AppCompatActivity {
          * 1. 将网络请求分离出去，降低耦合度，减轻Activity的负担
          *
          */
-        User user = new User(etName.getText().toString(),etPassword.getText().toString());
-        new RegisterPresenter().register(user);
+        User user = new User(etPassword.getText().toString(),etName.getText().toString());
+        new RegisterPresenter(this).register(user);
     }
 
-    public void showProgress(){
+    @Override
+    public void showProgress() {
+        // 显示一个进度框
+        progressDialog = ProgressDialog.show(this, "注册", "亲~不要着急，正在注册~~");
+    }
 
+    @Override
+    public void hideProgress() {
+        // 隐藏进度框
+        if (progressDialog!=null) {
+            progressDialog.dismiss();
+        }
+    }
+
+    @Override
+    public void showMessage(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void navigationToMain() {
+        startActivity(new Intent(this, MainActivity.class));
     }
 }
