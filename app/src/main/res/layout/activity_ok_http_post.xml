@@ -20,11 +20,34 @@
         android:layout_height="50dp"
         android:hint="请输入密码"/>
 
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册"
+            android:layout_gravity="center_horizontal"/>
+
+        <Button
+            android:id="@+id/btn_form"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="表单"/>
+
+    </LinearLayout>
+
+
     <Button
-        android:id="@+id/btn_register"
+        android:id="@+id/btn_mult_Ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="注册"
-        android:layout_gravity="center_horizontal"/>
+        android:text="多部分"/>
+
+
 
 </LinearLayout>

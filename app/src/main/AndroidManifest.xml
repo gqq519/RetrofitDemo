@@ -19,7 +19,13 @@
         </activity>
         <activity android:name=".okHttpGet.OkHttpGetActivity"></activity>
         <activity android:name=".okhttpGet01.OkHttpGet2Activity"></activity>
-        <activity android:name=".okhttpPost.OkHttpPostActivity"></activity>
+        <activity android:name=".okhttpPost.OkHttpPostActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".retrofitGet.RetrofitGetActivity"></activity>
         <activity android:name=".retrofitPost.RetrofitPostActivity"></activity>
         <activity android:name=".retrofitTest.RetrofitTestActivity"></activity>

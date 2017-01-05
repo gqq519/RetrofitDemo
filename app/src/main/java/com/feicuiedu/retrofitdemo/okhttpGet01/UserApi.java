@@ -1,6 +1,7 @@
 package com.feicuiedu.retrofitdemo.okhttpGet01;
 
 import com.feicuiedu.retrofitdemo.okhttpPost.User;
+import com.feicuiedu.retrofitdemo.retrofitTest.MultUser;
 
 import okhttp3.Call;
 import okhttp3.ResponseBody;
@@ -33,5 +34,9 @@ public interface UserApi {
 
 //    @GET("www.baidu.com")
 //    Call<ResponseBody> getA();
+
+    Call formPost(String name,String password);
+
+    Call multPost(MultUser multUser);
 
 }

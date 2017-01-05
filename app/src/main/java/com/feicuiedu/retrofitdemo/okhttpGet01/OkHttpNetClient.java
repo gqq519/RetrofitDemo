@@ -1,10 +1,13 @@
 package com.feicuiedu.retrofitdemo.okhttpGet01;
 
 import com.feicuiedu.retrofitdemo.okhttpPost.User;
+import com.feicuiedu.retrofitdemo.retrofitTest.MultUser;
 import com.google.gson.Gson;
 
 import okhttp3.Call;
+import okhttp3.FormBody;
 import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -79,6 +82,37 @@ public class OkHttpNetClient implements UserApi{
         Request request = new Request.Builder()
                 .post(body)
                 .url(url)
+                .build();
+
+        return mOkHttpClient.newCall(request);
+    }
+
+    @Override
+    public Call formPost(String name, String password) {
+
+        FormBody body = new FormBody.Builder()
+                .add("username",name)
+                .add("password",password)
+                .build();
+
+        Request request = new Request.Builder()
+                .post(body)
+                .url("http://wx.feicuiedu.com:9094/yitao/UserWeb?method=register")
+                .build();
+
+        return mOkHttpClient.newCall(request);
+    }
+
+    @Override
+    public Call multPost(MultUser multUser) {
+
+        MultipartBody body = new MultipartBody.Builder()
+                .addPart(RequestBody.create(null,new Gson().toJson(multUser)))
+                .build();
+
+        Request request = new Request.Builder()
+                .post(body)
+                .url("http://wx.feicuiedu.com:9094/yitao/UserWeb?method=update")
                 .build();
 
         return mOkHttpClient.newCall(request);
